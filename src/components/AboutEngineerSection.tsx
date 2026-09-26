@@ -11,6 +11,7 @@ import {
   Building
 } from 'lucide-react';
 import { ENGINEER_PROFILE, COMPANY_INFO } from '../data/hecoData';
+import { ContadorAnimado } from './animaciones/ContadorAnimado';
 
 interface AboutEngineerSectionProps {
   onOpenQuoteModal: () => void;
@@ -63,21 +64,31 @@ export const AboutEngineerSection: React.FC<AboutEngineerSectionProps> = ({ onOp
                 {/* Key Metrics */}
                 <div className="grid grid-cols-3 gap-2 border-t border-b border-white/10 py-3 text-center mb-6">
                   <div>
-                    <span className="font-mono font-bold text-lg text-white block">
-                      {ENGINEER_PROFILE.experienceYears}+
-                    </span>
+                    <ContadorAnimado
+                      valor={ENGINEER_PROFILE.experienceYears}
+                      sufijo="+"
+                      duracion={1.2}
+                      className="font-mono font-bold text-lg text-white block"
+                    />
                     <span className="text-[10px] text-slate-400 uppercase">Años Exp.</span>
                   </div>
                   <div>
-                    <span className="font-mono font-bold text-lg text-[#D9381E] block">
-                      {ENGINEER_PROFILE.sqmDesigned}
-                    </span>
+                    <ContadorAnimado
+                      valor={ENGINEER_PROFILE.sqmDesigned}
+                      prefijo="+"
+                      sufijo=" m²"
+                      duracion={2}
+                      className="font-mono font-bold text-lg text-[#D9381E] block"
+                    />
                     <span className="text-[10px] text-slate-400 uppercase">Diseñados</span>
                   </div>
                   <div>
-                    <span className="font-mono font-bold text-lg text-white block">
-                      {ENGINEER_PROFILE.projectsCount}
-                    </span>
+                    <ContadorAnimado
+                      valor={ENGINEER_PROFILE.projectsCount}
+                      prefijo="+"
+                      duracion={1.6}
+                      className="font-mono font-bold text-lg text-white block"
+                    />
                     <span className="text-[10px] text-slate-400 uppercase">Proyectos</span>
                   </div>
                 </div>

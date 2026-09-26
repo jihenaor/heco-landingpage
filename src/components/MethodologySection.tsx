@@ -10,6 +10,7 @@ import {
   FileCheck
 } from 'lucide-react';
 import { METHODOLOGY_STEPS } from '../data/hecoData';
+import { LineaCotaProgreso } from './animaciones/LineaCotaProgreso';
 
 export const MethodologySection: React.FC = () => {
   const [activeStepIndex, setActiveStepIndex] = useState<number>(0);
@@ -31,6 +32,8 @@ export const MethodologySection: React.FC = () => {
             Un flujo estructurado en 5 etapas que asegura rigor analítico, constructibilidad y certidumbre técnica desde el primer día.
           </p>
         </div>
+
+        <LineaCotaProgreso totalPasos={METHODOLOGY_STEPS.length} pasoActivo={activeStepIndex} />
 
         {/* 5 Step Process Navigation Bar */}
         <div className="grid grid-cols-1 sm:grid-cols-5 gap-2 mb-8">

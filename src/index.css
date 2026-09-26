@@ -51,3 +51,232 @@
   font-family: 'Roboto', sans-serif;
 }
 
+/* ------------------------------------------------------------------ */
+/* Animaciones SVG                                                     */
+/* Los elementos trazables usan pathLength="1" para dibujarse con      */
+/* stroke-dashoffset. --retraso escalona la secuencia de cada grupo.  */
+/* ------------------------------------------------------------------ */
+
+@keyframes trazo {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes aparecer {
+  to { opacity: 1; }
+}
+
+.trazo-grupo > line,
+.trazo-grupo > rect {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: trazo 0.9s ease-out var(--retraso, 0s) forwards;
+}
+
+.aparecer {
+  opacity: 0;
+  animation: aparecer 0.6s ease-out var(--retraso, 0s) forwards;
+}
+
+/* Pórtico sísmico (Hero): ciclo de 6 s tras el trazado inicial.
+   skewX anclado a la base hace que la cubierta se desplace más que
+   los pisos bajos, como el primer modo de vibración. */
+.portico-sismo {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: sismo 6s ease-in-out 1.8s infinite;
+}
+
+@keyframes sismo {
+  0%, 55%, 100% { transform: skewX(0deg); }
+  61% { transform: skewX(-4deg); }
+  68% { transform: skewX(3.2deg); }
+  75% { transform: skewX(-2deg); }
+  82% { transform: skewX(1deg); }
+  88% { transform: skewX(-0.4deg); }
+  92% { transform: skewX(0deg); }
+}
+
+.suelo-sismo {
+  animation:
+    aparecer 0.6s ease-out var(--retraso, 0s) forwards,
+    suelo 6s linear 1.8s infinite;
+}
+
+@keyframes suelo {
+  0%, 55%, 84%, 100% { transform: translateX(0); }
+  58% { transform: translateX(-2px); }
+  62% { transform: translateX(2px); }
+  66% { transform: translateX(-1.5px); }
+  70% { transform: translateX(1.5px); }
+  75% { transform: translateX(-1px); }
+  80% { transform: translateX(0.5px); }
+}
+
+.fuerza-sismo {
+  animation:
+    aparecer 0.6s ease-out var(--retraso, 0s) forwards,
+    empuje 6s ease-in-out 1.8s infinite;
+}
+
+@keyframes empuje {
+  0%, 52%, 100% { transform: translateX(0); }
+  58% { transform: translateX(7px); }
+  66% { transform: translateX(0); }
+}
+
+.riostras-flujo line {
+  animation: flujo 1.2s linear infinite;
+}
+
+@keyframes flujo {
+  to { stroke-dashoffset: -14; }
+}
+
+.deriva-destello {
+  animation: destello 6s ease-in-out 1.8s infinite;
+}
+
+@keyframes destello {
+  0%, 88%, 100% { text-shadow: none; }
+  93% { text-shadow: 0 0 8px rgba(52, 211, 153, 0.9); }
+}
+
+/* Fisura (patologías): ciclo de 9 s que solo corre mientras la
+   escena está en pantalla. */
+.fisura-escena:not(.en-vista) * {
+  animation-play-state: paused !important;
+}
+
+.fisura-escaneo {
+  animation: escaneo 9s ease-in-out infinite;
+}
+
+@keyframes escaneo {
+  0% { transform: translateY(0); opacity: 0; }
+  3% { opacity: 0.9; }
+  30% { transform: translateY(190px); opacity: 0.9; }
+  33%, 100% { transform: translateY(190px); opacity: 0; }
+}
+
+.fisura-grieta {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: grieta 9s ease-out infinite;
+}
+
+.fisura-grieta.ramal {
+  animation-name: grieta-ramal;
+}
+
+@keyframes grieta {
+  0%, 5% { stroke-dashoffset: 1; opacity: 1; }
+  32% { stroke-dashoffset: 0; }
+  88% { stroke-dashoffset: 0; opacity: 1; }
+  95% { stroke-dashoffset: 0; opacity: 0; }
+  100% { stroke-dashoffset: 1; opacity: 0; }
+}
+
+@keyframes grieta-ramal {
+  0%, 20% { stroke-dashoffset: 1; opacity: 1; }
+  38% { stroke-dashoffset: 0; }
+  88% { stroke-dashoffset: 0; opacity: 1; }
+  95% { stroke-dashoffset: 0; opacity: 0; }
+  100% { stroke-dashoffset: 1; opacity: 0; }
+}
+
+.fisura-sello {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: sello 9s ease-in-out infinite;
+}
+
+@keyframes sello {
+  0%, 55% { stroke-dashoffset: 1; opacity: 1; }
+  74% { stroke-dashoffset: 0; }
+  88% { stroke-dashoffset: 0; opacity: 1; }
+  95% { stroke-dashoffset: 0; opacity: 0; }
+  100% { stroke-dashoffset: 1; opacity: 0; }
+}
+
+.fisura-grapa {
+  opacity: 0;
+  animation: grapa 9s ease-out var(--retraso, 0s) infinite;
+}
+
+@keyframes grapa {
+  0%, 72% { opacity: 0; }
+  76%, 88% { opacity: 1; }
+  95%, 100% { opacity: 0; }
+}
+
+.fisura-medida {
+  opacity: 0;
+  animation: medida 9s ease-in-out infinite;
+}
+
+@keyframes medida {
+  0%, 36% { opacity: 0; }
+  40%, 54% { opacity: 1; }
+  58%, 100% { opacity: 0; }
+}
+
+.fisura-estado-alerta {
+  animation: estado-alerta 9s ease-in-out infinite;
+}
+
+@keyframes estado-alerta {
+  0%, 56% { opacity: 1; }
+  60%, 96% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.fisura-estado-ok {
+  opacity: 0;
+  animation: estado-ok 9s ease-in-out infinite;
+}
+
+@keyframes estado-ok {
+  0%, 72% { opacity: 0; }
+  76%, 92% { opacity: 1; }
+  96%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trazo-grupo > line,
+  .trazo-grupo > rect,
+  .fisura-grieta,
+  .fisura-sello {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .aparecer,
+  .fisura-grapa,
+  .fisura-estado-ok {
+    animation: none;
+    opacity: 1;
+  }
+
+  .portico-sismo,
+  .suelo-sismo,
+  .fuerza-sismo,
+  .riostras-flujo line,
+  .deriva-destello,
+  .fisura-escaneo,
+  .fisura-medida,
+  .fisura-estado-alerta {
+    animation: none;
+  }
+
+  .suelo-sismo,
+  .fuerza-sismo {
+    opacity: 1;
+  }
+
+  .fisura-escaneo,
+  .fisura-medida,
+  .fisura-estado-alerta {
+    opacity: 0;
+  }
+}
+

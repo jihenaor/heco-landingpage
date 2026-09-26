@@ -378,8 +378,8 @@ export const ENGINEER_PROFILE = {
     'Miembro Activo de la Asociación Colombiana de Ingeniería Sísmica (AIS)'
   ],
   experienceYears: 14,
-  sqmDesigned: '+120.000 m²',
-  projectsCount: '+85',
+  sqmDesigned: 120000,
+  projectsCount: 85,
   keyCompetencies: [
     'Diseño y detallado sismorresistente bajo NSR-10 (Títulos A al K)',
     'Modelación tridimensional avanzada en ETABS, SAFE, SAP2000 y CYPECAD',

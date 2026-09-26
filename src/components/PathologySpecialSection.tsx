@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { PATHOLOGY_TRIAGE_CASES, COMPANY_INFO } from '../data/hecoData';
 import { PathologyTriageCase } from '../types';
+import { FisuraAnimada } from './animaciones/FisuraAnimada';
 
 interface PathologySpecialSectionProps {
   onOpenQuoteModal: (mode: 'patologia') => void;
@@ -27,8 +28,9 @@ export const PathologySpecialSection: React.FC<PathologySpecialSectionProps> = (
   return (
     <section id="patologias" className="py-16 bg-white border-b-4 border-[#D9381E]">
       <div className="max-w-[1200px] mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-10">
         {/* Main Distinctive Heading (Req #7) */}
-        <div className="max-w-3xl mb-10">
+        <div className="lg:col-span-7">
           <div className="flex items-center gap-2 text-xs uppercase font-bold tracking-widest text-[#D9381E] mb-2">
             <AlertTriangle className="w-4 h-4 text-[#D9381E]" />
             <span>Diagnóstico Especializado de Daños Estructurales</span>
@@ -54,6 +56,11 @@ export const PathologySpecialSection: React.FC<PathologySpecialSectionProps> = (
               </span>
             </div>
           </div>
+        </div>
+
+        <div className="lg:col-span-5">
+          <FisuraAnimada />
+        </div>
         </div>
 
         {/* 5-Step Diagnostic Protocol (Req #7) */}

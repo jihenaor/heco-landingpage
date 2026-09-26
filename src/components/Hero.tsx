@@ -12,6 +12,8 @@ import {
   Cpu
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/hecoData';
+import { PorticoSismico } from './animaciones/PorticoSismico';
+import { ContadorAnimado } from './animaciones/ContadorAnimado';
 
 interface HeroProps {
   onSelectPath: (path: 'diseno' | 'patologia') => void;
@@ -175,87 +177,35 @@ export const Hero: React.FC<HeroProps> = ({ onSelectPath, onOpenQuoteModal }) =>
               <div className="bg-[#071322] border border-sky-900/50 rounded p-4 relative font-mono text-[11px] text-sky-300">
                 <div className="flex justify-between items-center text-[10px] text-slate-400 border-b border-sky-900/30 pb-2 mb-3">
                   <span>PÓRTICO RESISTENTE A MOMENTOS (DES)</span>
-                  <span className="text-emerald-400">DERIVA: 0.82% &lt; 1.00% [CUMPLE]</span>
+                  <span className="text-emerald-400 deriva-destello">
+                    DERIVA: <ContadorAnimado valor={0.82} decimales={2} duracion={1.8} retraso={0.3} sufijo="%" /> &lt; 1.00% [CUMPLE]
+                  </span>
                 </div>
 
                 {/* SVG Structural Frame Model */}
                 <div className="w-full h-48 relative flex items-center justify-center">
-                  <svg viewBox="0 0 320 180" className="w-full h-full text-sky-400 stroke-current">
-                    {/* Grid Lines */}
-                    <g opacity="0.15" stroke="#38bdf8" strokeWidth="0.5">
-                      <line x1="20" y1="20" x2="300" y2="20" />
-                      <line x1="20" y1="65" x2="300" y2="65" />
-                      <line x1="20" y1="110" x2="300" y2="110" />
-                      <line x1="20" y1="155" x2="300" y2="155" />
-                      <line x1="40" y1="10" x2="40" y2="170" />
-                      <line x1="120" y1="10" x2="120" y2="170" />
-                      <line x1="200" y1="10" x2="200" y2="170" />
-                      <line x1="280" y1="10" x2="280" y2="170" />
-                    </g>
-
-                    {/* Foundation Piles */}
-                    <g fill="#0C2340" stroke="#0288D1" strokeWidth="2">
-                      <rect x="30" y="155" width="20" height="15" />
-                      <rect x="110" y="155" width="20" height="15" />
-                      <rect x="190" y="155" width="20" height="15" />
-                      <rect x="270" y="155" width="20" height="15" />
-                      <line x1="20" y1="170" x2="300" y2="170" stroke="#E65100" strokeWidth="2" strokeDasharray="3 3" />
-                    </g>
-
-                    {/* Columns (DES special concrete) */}
-                    <g stroke="#ffffff" strokeWidth="3.5">
-                      <line x1="40" y1="20" x2="40" y2="155" />
-                      <line x1="120" y1="20" x2="120" y2="155" />
-                      <line x1="200" y1="20" x2="200" y2="155" />
-                      <line x1="280" y1="20" x2="280" y2="155" />
-                    </g>
-
-                    {/* Beams with seismic moment resistance */}
-                    <g stroke="#38bdf8" strokeWidth="3">
-                      <line x1="40" y1="20" x2="280" y2="20" />
-                      <line x1="40" y1="65" x2="280" y2="65" />
-                      <line x1="40" y1="110" x2="280" y2="110" />
-                      <line x1="40" y1="155" x2="280" y2="155" stroke="#E0E0E0" strokeWidth="4" />
-                    </g>
-
-                    {/* Diagonal Bracing (Vulnerabilidad / Reforzamiento) */}
-                    <g stroke="#D9381E" strokeWidth="2" strokeDasharray="4 3">
-                      <line x1="120" y1="155" x2="200" y2="110" />
-                      <line x1="200" y1="155" x2="120" y2="110" />
-                    </g>
-
-                    {/* Node Connection Points */}
-                    <g fill="#D9381E">
-                      <circle cx="40" cy="20" r="3" />
-                      <circle cx="120" cy="20" r="3" />
-                      <circle cx="200" cy="20" r="3" />
-                      <circle cx="280" cy="20" r="3" />
-                      <circle cx="120" cy="110" r="3" />
-                      <circle cx="200" cy="110" r="3" />
-                    </g>
-
-                    {/* Seismic Force Vector Arrow */}
-                    <g stroke="#E65100" strokeWidth="2" fill="#E65100">
-                      <line x1="5" y1="20" x2="28" y2="20" markerEnd="url(#arrow)" />
-                      <polygon points="28,17 38,20 28,23" />
-                      <text x="5" y="14" fill="#E65100" fontSize="9" fontWeight="bold">Fs (Sismo)</text>
-                    </g>
-                  </svg>
+                  <PorticoSismico />
                 </div>
 
                 {/* Real Engineering Parameters */}
                 <div className="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-sky-900/30 text-[10px]">
                   <div>
                     <span className="text-slate-400">Resistencia Concreto:</span>
-                    <span className="text-white block font-bold">f'c = 28 MPa (4000 psi)</span>
+                    <span className="text-white block font-bold">
+                      f'c = <ContadorAnimado valor={28} retraso={0.4} /> MPa (4000 psi)
+                    </span>
                   </div>
                   <div>
                     <span className="text-slate-400">Acero Corrugado:</span>
-                    <span className="text-white block font-bold">fy = 420 MPa (Grado 60)</span>
+                    <span className="text-white block font-bold">
+                      fy = <ContadorAnimado valor={420} retraso={0.5} /> MPa (Grado 60)
+                    </span>
                   </div>
                   <div>
                     <span className="text-slate-400">Zona Sísmica:</span>
-                    <span className="text-white block font-bold">Pereira (Alta) Aa=0.25</span>
+                    <span className="text-white block font-bold">
+                      Pereira (Alta) Aa=<ContadorAnimado valor={0.25} decimales={2} retraso={0.6} />
+                    </span>
                   </div>
                   <div>
                     <span className="text-slate-400">Entregable Curaduría:</span>
