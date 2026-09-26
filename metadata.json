@@ -1,0 +1,6 @@
+{
+  "name": "HECO Consultoría Estructural",
+  "description": "Firma especializada en ingeniería estructural en Pereira y Risaralda: diseño sismorresistente bajo NSR-10, diagnóstico de patologías, vulnerabilidad y reforzamiento.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
