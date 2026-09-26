@@ -152,7 +152,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
               }}
               className="bg-[#D9381E] hover:bg-[#B52B14] text-white text-xs font-bold uppercase px-4 py-2 rounded-[4px] cursor-pointer"
             >
-              Cotizar Proyecto Similar
+              Consultar Proyecto Similar 1 a 1
             </button>
           </div>
         </div>

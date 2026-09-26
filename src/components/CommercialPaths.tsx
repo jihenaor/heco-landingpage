@@ -91,7 +91,7 @@ export const CommercialPaths: React.FC<CommercialPathsProps> = ({
                 }}
                 className="w-full bg-[#0C2340] hover:bg-[#0A192F] text-white font-bold text-xs uppercase tracking-wider py-3 px-6 rounded-[4px] flex items-center justify-center gap-2 shadow-sm transition-colors cursor-pointer"
               >
-                <span>Cotizar Diseño Nuevo para Curaduría</span>
+                <span>Coordinar Evaluación Previa de Planos</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -151,7 +151,7 @@ export const CommercialPaths: React.FC<CommercialPathsProps> = ({
                 }}
                 className="w-full bg-[#D9381E] hover:bg-[#B52B14] text-white font-bold text-xs uppercase tracking-wider py-3 px-6 rounded-[4px] flex items-center justify-center gap-2 shadow-sm transition-colors cursor-pointer"
               >
-                <span>Solicitar Inspección Técnica de Daños</span>
+                <span>Agendar Inspección Técnica 1 a 1</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

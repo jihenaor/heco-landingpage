@@ -191,7 +191,7 @@ export const Header: React.FC<HeaderProps> = ({
             className="bg-[#D9381E] hover:bg-[#B52B14] text-white text-xs font-bold uppercase tracking-wider py-2.5 px-5 rounded-[4px] shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
           >
             <FileText className="w-3.5 h-3.5" />
-            <span>Solicitar Evaluación</span>
+            <span>Evaluación Técnica 1 a 1</span>
           </button>
         </div>
 
@@ -201,7 +201,7 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={() => onOpenQuoteModal()}
             className="bg-[#D9381E] text-white text-[11px] font-bold uppercase px-3 py-1.5 rounded-[4px]"
           >
-            Cotizar
+            Evaluación 1 a 1
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -305,7 +305,7 @@ export const Header: React.FC<HeaderProps> = ({
               className="w-full bg-[#D9381E] text-white py-2.5 rounded font-bold text-xs uppercase flex items-center justify-center gap-2"
             >
               <FileText className="w-4 h-4" />
-              Solicitar Cotización / Evaluación
+              Solicitar Evaluación Técnica Previa
             </button>
           </div>
         </div>

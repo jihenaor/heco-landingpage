@@ -95,10 +95,10 @@ export const Hero: React.FC<HeroProps> = ({ onSelectPath, onOpenQuoteModal }) =>
                     Quiero Diseñar / Construir
                   </h3>
                   <p className="text-xs text-slate-300 line-clamp-2">
-                    Diseño estructural nuevo, ampliaciones, modelación ETABS y memorias para Curaduría Urbana.
+                    Diseño estructural nuevo, ampliaciones y licenciamiento. Revisamos sus planos arquitectónicos antes de presupuestar.
                   </p>
                   <div className="mt-3 inline-flex items-center gap-1 text-[11px] font-bold text-sky-400 group-hover:underline">
-                    <span>Cotizar diseño nuevo</span>
+                    <span>Revisión previa con el ingeniero</span>
                     <span>→</span>
                   </div>
                 </button>
@@ -122,10 +122,10 @@ export const Hero: React.FC<HeroProps> = ({ onSelectPath, onOpenQuoteModal }) =>
                     Ya Tengo una Estructura
                   </h3>
                   <p className="text-xs text-slate-300 line-clamp-2">
-                    Fisuras, grietas, corrosión, evaluación sísmica o peritaje de edificación existente.
+                    Fisuras, grietas, asentamientos o dudas de seguridad. Coordinamos visita o concepto preliminar 1 a 1.
                   </p>
                   <div className="mt-3 inline-flex items-center gap-1 text-[11px] font-bold text-red-400 group-hover:underline">
-                    <span>Solicitar evaluación técnica</span>
+                    <span>Agendar evaluación de daños</span>
                     <span>→</span>
                   </div>
                 </button>

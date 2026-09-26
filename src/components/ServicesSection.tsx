@@ -149,7 +149,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                         : 'bg-[#0C2340] hover:bg-[#0A192F] text-white'
                     }`}
                   >
-                    <span>Cotizar {srv.title}</span>
+                    <span>Consultar {srv.title} con el Ingeniero</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -162,17 +162,17 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         <div className="bg-white rounded-[8px] p-6 border border-[#E0E0E0] flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="font-heading font-bold text-base text-[#0C2340] uppercase">
-              ¿No está seguro de qué servicio requiere su edificación?
+              ¿No está seguro de qué servicio o alcance requiere su proyecto?
             </h4>
             <p className="text-xs text-[#6B7280]">
-              Un diagnóstico oportuno evita sobrecostos de intervención. Consúltenos sin costo su caso inicial en Pereira y Risaralda.
+              Evite cotizaciones a ciegas. Una breve llamada o revisión técnica preliminar le orienta con total transparencia y rigor.
             </p>
           </div>
           <button
             onClick={() => onOpenQuoteModal('patologia')}
             className="shrink-0 bg-transparent border-2 border-[#0C2340] text-[#0C2340] hover:bg-[#0C2340] hover:text-white font-bold text-xs uppercase px-5 py-2.5 rounded-[4px] transition-colors cursor-pointer"
           >
-            Orientación Gratuita
+            Orientación Técnica 1 a 1
           </button>
         </div>
       </div>

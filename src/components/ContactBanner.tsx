@@ -35,14 +35,14 @@ export const ContactBanner: React.FC<ContactBannerProps> = ({ onOpenQuoteModal }
           Envíenos una descripción del proyecto, planos o fotografías y revisaremos la información inicial sin compromiso.
         </p>
 
-        {/* Alternative Quote Option */}
+        {/* Alternative Contact Option */}
         <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-4 text-xs text-slate-400">
-          <span>O si lo prefiere, use nuestro estimador técnico online:</span>
+          <span>¿Prefiere que el ingeniero revise sus planos o fotos antes de llamarle?</span>
           <button
             onClick={onOpenQuoteModal}
             className="text-white font-bold uppercase underline hover:text-[#D9381E] cursor-pointer flex items-center gap-1"
           >
-            <span>Generar estimación técnica</span>
+            <span>Programar evaluación previa personalizada</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>

@@ -403,8 +403,8 @@ export const FAQ_DATA: FaqItem[] = [
   {
     id: 'faq-1',
     category: 'diseno',
-    question: '¿Qué información necesitan para cotizar un diseño estructural?',
-    answer: 'Para emitir una propuesta formal requerimos: 1) Anteproyecto arquitectónico en formato DWG o PDF (plantas acotadas, cortes y fachadas), 2) Estudio de suelos del lote o predio si ya está disponible (según NSR-10 Título H), 3) Ubicación geográfica exacta para verificar los parámetros de aceleración sísmica (Pereira, Dosquebradas, Santa Rosa o municipios vecinos) y 4) Tipo de uso previsto (vivienda, comercio, bodegaje, institucional).'
+    question: '¿Por qué en HECO realizamos una evaluación técnica previa antes de cotizar?',
+    answer: 'Porque en ingeniería estructural cada terreno, geometría y sistema constructivo es particular. Cotizar a ciegas sin revisar la complejidad arquitectónica o el tipo de suelo conduce a sobrecostos o alcances incompletos. Conversamos previamente uno a uno con el cliente, revisamos el estado de los planos y definimos juntos la mejor ruta técnica antes de presentar cualquier propuesta económica.'
   },
   {
     id: 'faq-2',
