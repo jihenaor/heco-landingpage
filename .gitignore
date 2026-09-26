@@ -6,3 +6,16 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Herramientas de agentes / IDE
+.agents/
+.claude/
+.kiro/
+skills-lock.json
+
+# Caché de Firebase
+.firebase/
+
+# Material de análisis local
+_analisis/
+efeprimace_home.html

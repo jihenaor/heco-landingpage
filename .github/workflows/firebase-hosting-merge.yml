@@ -1,0 +1,41 @@
+# Publica el sitio en Firebase Hosting cada vez que se hace push a `main`.
+#
+# El sitio es una app React + Vite; se construye con `bun run build` y se
+# publica la carpeta `dist/`. Se usa la última versión de bun porque `bun.lock`
+# usa un formato que las versiones antiguas no reconocen.
+#
+# Requiere el secreto FIREBASE_SERVICE_ACCOUNT_HECO_LANDINGPAGE en el repositorio:
+# Settings -> Secrets and variables -> Actions -> New repository secret.
+# Su valor es el JSON de una cuenta de servicio de Firebase con permiso sobre
+# el proyecto `heco-landingpage`.
+
+name: Desplegar en Firebase Hosting (main)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  construir_y_desplegar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Instalar dependencias
+        run: bun install --frozen-lockfile
+
+      - name: Construir el sitio
+        run: bun run build
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_HECO_LANDINGPAGE }}
+          channelId: live
+          projectId: heco-landingpage

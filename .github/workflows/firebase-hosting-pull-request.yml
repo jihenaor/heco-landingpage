@@ -1,0 +1,36 @@
+# Genera una URL de vista previa en Firebase Hosting para cada pull request.
+#
+# Igual que el flujo de `main`, construye el sitio con `bun run build` antes de
+# desplegar. Requiere el mismo secreto FIREBASE_SERVICE_ACCOUNT_HECO_LANDINGPAGE.
+
+name: Vista previa en Firebase Hosting (pull request)
+
+on: pull_request
+
+permissions:
+  checks: write
+  contents: read
+  pull-requests: write
+
+jobs:
+  construir_y_previsualizar:
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Instalar dependencias
+        run: bun install --frozen-lockfile
+
+      - name: Construir el sitio
+        run: bun run build
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_HECO_LANDINGPAGE }}
+          projectId: heco-landingpage
